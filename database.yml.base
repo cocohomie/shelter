@@ -12,8 +12,6 @@ development:
   pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
   port: 5432
   username: vagrant
-production: 
-  url: "<%= ENV['DATABASE_URL'] %>"
 test: 
   adapter: postgresql
   database: homie-monolith_test
