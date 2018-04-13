@@ -37,11 +37,36 @@ rvm use 2.5.1 --default
 
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 gem install bundler
+gem install rails
 gem install homesick
 gem install eefgilm
 gem install pry
 gem install awesome_print
-	
+
+echo -e "\n- - - - - -\n"
+echo -e "Now we are going to print some information to check that everything is done:\n\n"
+
+echo -n "Should be rvm 1.29 or higher:         "
+rvm --version
+echo -n "Should be ruby 2.4.1 or higher:                "
+ruby -v
+echo -n "Should be Bundler 1.15 or higher:         "
+bundler -v
+echo -n "Should be Rails 5.1.3 or higher:         "
+rails -v
+echo -n "Should be NodeJS 6.11 or higher:         "
+node -v
+echo -n "Should be sqlite 3.11 or higher:         "
+sqlite3 --version
+echo -n "Should be ImageMagick 6.8.9 or higher:         "
+convert --version
+echo -n "Should be Heroku 6.13 or higher:            "
+heroku --version
+echo -e "\n- - - - - -\n"
+
+echo "If the versions match, everything is installed correctly."
+echo "Setup the database"
+
 sh -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 echo "home sick!"
@@ -53,5 +78,12 @@ rm /home/vagrant/.zshrc
 
 homesick link
 echo "cd /vagrant" >> /home/vagrant/.bashrc
-echo "We are good to go!"
 
+cd /vagrant
+
+bundle
+bundle exec rails db:create
+bundle exec rails db:schema:load
+bundle exec rails db:migrate
+
+echo "We are good to go!"
