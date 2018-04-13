@@ -81,6 +81,11 @@ echo "cd /vagrant" >> /home/vagrant/.bashrc
 
 cd /vagrant
 
+if [ -d "app/" ]; then
+ rails new . --database postgresql
+ mv database.yml.base config/database.yml
+fi
+
 bundle
 bundle exec rails db:create
 bundle exec rails db:schema:load
