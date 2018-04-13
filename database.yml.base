@@ -2,14 +2,14 @@
 default: 
   adapter: postgresql
   encoding: unicode
-  pool: "<%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>"
+  pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
 development: 
   adapter: postgresql
   database: development
   encoding: unicode
   host: localhost
   password: vagrant
-  pool: "<%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>"
+  pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
   port: 5432
   username: vagrant
 production: 
@@ -18,4 +18,4 @@ test:
   adapter: postgresql
   database: homie-monolith_test
   encoding: unicode
-  pool: "<%= ENV.fetch(\"RAILS_MAX_THREADS\") { 5 } %>"
+  pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
