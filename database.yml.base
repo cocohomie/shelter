@@ -1,0 +1,17 @@
+#!/bin/bash
+default: &default
+	adapter: postgresql
+	encoding: unicode
+	pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+	<<: *default
+	database: development
+	username: 'vagrant'
+	password: 'vagrant'
+	host: localhost
+	port: 5432
+test:
+	<<: *default
+	database: homie-monolith_test
+production:
+	 url: <%= ENV['DATABASE_URL'] %>
