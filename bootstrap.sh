@@ -92,7 +92,13 @@ else
  bundle exec rails db:migrate
 fi
 
+rm -rf .git 
+
+git init .
 git add .
 git commit -am "iniial upload"
+
+#clean up
+git flow init -d
 
 echo "We are good to go!"
