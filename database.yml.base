@@ -14,6 +14,6 @@ development:
   username: vagrant
 test: 
   adapter: postgresql
-  database: homie-monolith_test
+  database: test
   encoding: unicode
   pool: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
