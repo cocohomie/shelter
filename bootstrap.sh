@@ -86,9 +86,12 @@ if [ ! -d "app/" ]; then
 fi
 
 echo "Setup the database"
-bundle
 bundle exec rails db:create
+bendle rake db:migrate
 bundle exec rails db:schema:load
 bundle exec rails db:migrate
+
+git add .
+git commit -am "iniial upload"
 
 echo "We are good to go!"
