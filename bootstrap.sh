@@ -43,6 +43,9 @@ gem install eefgilm
 gem install pry
 gem install awesome_print
 
+sh -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
 echo -e "\n- - - - - -\n"
 echo -e "Now we are going to print some information to check that everything is done:\n\n"
 
@@ -65,13 +68,9 @@ heroku --version
 echo -e "\n- - - - - -\n"
 
 echo "If the versions match, everything is installed correctly."
-echo "Setup the database"
 
-sh -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
-wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 echo "home sick!"
 homesick clone cocohomie/dotfiles
-
 rm /home/vagrant/.gemrc
 rm /home/vagrant/.bashrc
 rm /home/vagrant/.zshrc
@@ -86,6 +85,7 @@ if [ -d "app/" ]; then
  mv database.yml.base config/database.yml
 fi
 
+echo "Setup the database"
 bundle
 bundle exec rails db:create
 bundle exec rails db:schema:load
