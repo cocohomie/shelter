@@ -83,13 +83,14 @@ cd /vagrant
 if [ ! -d "app/" ]; then
  rails new . --database postgresql
  mv database.yml.base config/database.yml
+ bundle exec rails db:create
+ bundle exec rails db:migrate
+else
+ echo "Setup the database"
+ bundle exec rails db:create
+ bundle exec rails db:schema:load
+ bundle exec rails db:migrate
 fi
-
-echo "Setup the database"
-bundle exec rails db:create
-bendle rake db:migrate
-bundle exec rails db:schema:load
-bundle exec rails db:migrate
 
 git add .
 git commit -am "iniial upload"
