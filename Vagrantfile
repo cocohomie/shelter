@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.box       = "ubuntu/xenial64"
   config.vm.hostname  = "rails"
   config.vm.provision :shell, path: 'bootstrap.sh', keep_color: true, privileged: false
-  config.vm.network :forwarded_port, guest: 3001, host: 3001
+  config.vm.network :forwarded_port, guest: 3001, host: 3001,auto_correct: true
 
   config.vm.provider 'virtualbox' do |v|
     v.memory = 2048
