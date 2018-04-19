@@ -16,6 +16,7 @@ sudo apt-get update -y
 
 echo "Installs packages. Give your password when asked."
 sudo apt-get --ignore-missing install build-essential direnv git-core curl openssl libssl-dev libcurl4-openssl-dev zlib1g zlib1g-dev libreadline-dev libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev libsqlite3-0 sqlite3 libxml2-dev libxslt1-dev python-software-properties libffi-dev libgdm-dev libncurses5-dev automake autoconf libtool bison postgresql postgresql-contrib libpq-dev pgadmin3 libc6-dev nodejs git-flow -y
+sudo apt-get install direnv
 sudo apt-get dist-upgrade -y
 sudo apt list --upgradable
 sudo apt-get install language-pack-en -y
