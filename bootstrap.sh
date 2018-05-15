@@ -21,6 +21,7 @@ sudo apt-get install git-flow -y
 sudo apt-get install direnv -y
 sudo apt list --upgradable
 sudo apt-get install language-pack-en -y
+sudo apt-get install ack-grep -y
 
 # Create Role and login
 sudo su postgres -c "psql -c \"CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'\" "
@@ -45,6 +46,7 @@ gem install eefgilm
 gem install pry
 gem install awesome_print
 gem install annotate 
+gem install mailcatcher
 
 sh -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
@@ -81,6 +83,7 @@ rm /home/vagrant/.zshrc
 homesick link
 echo "cd /vagrant" >> /home/vagrant/.bashrc
 
+
 cd /vagrant
 
 if [ ! -d "app/" ]; then
@@ -95,13 +98,10 @@ else
  bundle exec rails db:migrate
 fi
 
+#clean up repository
 rm -rf .git 
-
 git init .
 git add .
 git commit -am "iniial upload"
-
-#clean up
-git flow init -d
 
 echo "We are good to go!"
